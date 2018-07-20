@@ -11,6 +11,9 @@
   "dependencies": {
     "axios": "0.18.0",
     "materialize-css": "0.100.2",
+    "mobx": "5.0.3",
+    "mobx-react": "5.2.3",
+    "mobx-state-tree": "3.0.0",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-router-dom": "4.3.1"
