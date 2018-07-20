@@ -1,5 +1,6 @@
-import axios from 'axios';
 import { types, flow } from 'mobx-state-tree';
+
+import { fetchPeopleApi } from '../services/people';
 
 const PersonModel = types
   .model('PersonModel', {
@@ -21,20 +22,9 @@ const PeopleStore = types
   .actions(self => {
     const fetchPeople = flow(function* () {
       self.fetchingData = true;
-      const url = 'http://zssn-backend-example.herokuapp.com/api/people.json';
-      
-      const people = yield axios.get(url).then(response => response.data);
   
-      self.people = people.map(person => ({
-        location: person.location,
-        name: person.name,
-        age: person.age,
-        gender: person.gender,
-        lonlat: person.lonlat,
-        created_at: new Date(person.created_at),
-        updated_at: new Date(person.updated_at),
-        infected: person['infected?']
-      }));
+  
+      self.people = yield fetchPeopleApi();
   
       self.fetchingData = false;
     });
