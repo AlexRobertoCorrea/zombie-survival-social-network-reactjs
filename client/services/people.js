@@ -5,14 +5,9 @@ const fetchPeopleApi = () => {
   
   return axios.get(url).then(response =>
     response.data.map(person => ({
-      location: person.location,
-      name: person.name,
-      age: person.age,
-      gender: person.gender,
-      lonlat: person.lonlat,
+      ...person,
       created_at: new Date(person.created_at),
-      updated_at: new Date(person.updated_at),
-      infected: person['infected?']
+      updated_at: new Date(person.updated_at)
     })));
 };
 
