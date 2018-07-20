@@ -23,9 +23,9 @@ const PeopleStore = types
       self.fetchingData = true;
       const url = 'http://zssn-backend-example.herokuapp.com/api/people.json';
       
-      const people = yield axios.get(url);
+      const people = yield axios.get(url).then(response => response.data);
   
-      self.people = people.data.map(person => ({
+      self.people = people.map(person => ({
         location: person.location,
         name: person.name,
         age: person.age,
