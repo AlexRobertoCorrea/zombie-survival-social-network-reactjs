@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Renders header correctly Ensure that header works correctly 1`] = `
+<Header
+  classes={
+    Object {
+      "leftIcon": "Header-leftIcon-02",
+      "root": "Header-root-01",
+    }
+  }
+/>
+`;

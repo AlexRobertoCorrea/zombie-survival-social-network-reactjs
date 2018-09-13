@@ -10,6 +10,7 @@
   ],
   "plugins": [
     "transform-runtime",
-    "transform-async-to-generator"
+    "transform-async-to-generator",
+    "transform-decorators-legacy"
   ]
 }

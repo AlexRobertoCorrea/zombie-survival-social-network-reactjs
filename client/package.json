@@ -4,19 +4,37 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "install:prod": "../node_modules/yarn/bin/yarn install"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alex Roberto Corrêa",
+  "license": "MIT License",
   "dependencies": {
+    "@material-ui/core": "3.0.3",
+    "@material-ui/icons": "3.0.1",
     "axios": "0.18.0",
+    "http-status": "1.2.0",
     "mobx": "5.0.3",
     "mobx-react": "5.2.3",
+    "mobx-react-form": "1.35.1",
     "mobx-state-tree": "3.0.0",
+    "prop-types": "15.6.2",
     "react": "16.4.1",
-    "react-css-grid": "2.0.0-0",
     "react-dom": "16.4.1",
     "react-router-dom": "4.3.1",
-    "react-toolbox": "2.0.0-beta.13"
+    "uuid": "3.3.2",
+    "validatorjs": "3.14.2"
+  },
+  "devDependencies": {
+    "chance": "1.0.16",
+    "enzyme": "3.6.0",
+    "enzyme-adapter-react-16": "1.5.0",
+    "enzyme-to-json": "3.3.4",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "23.6.0",
+    "nock": "9.6.1",
+    "react-test-renderer": "16.5.0"
   }
 }

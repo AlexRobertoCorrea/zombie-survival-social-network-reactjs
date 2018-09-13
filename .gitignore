@@ -1,6 +1,9 @@
 .idea/
 node_modules/
 client/node_modules/
-.tmp/bundle.js
 .dist/
 npm-debug.log
+conf/config.json
+coverage/
+client/coverage/
+v8-compile-cache-0/

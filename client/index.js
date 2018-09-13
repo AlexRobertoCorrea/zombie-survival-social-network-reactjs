@@ -6,14 +6,13 @@ import PeopleStore from './stores/people';
 import App from './containers/app/App';
 
 const peopleStore = PeopleStore.create();
-peopleStore.fetchPeople();
 
 const store = {
-  people: peopleStore
+  peopleStore
 };
 
 const router = (
-  <Provider {...store}>
+  <Provider store={store}>
     <div>
       <App />
     </div>

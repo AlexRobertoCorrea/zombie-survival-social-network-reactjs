@@ -19,10 +19,9 @@ const PeopleStore = types
     people: types.optional(types.array(PersonModel), []),
     fetchingData: types.optional(types.boolean, false)
   })
-  .actions(self => {
+  .actions((self) => {
     const fetchPeople = flow(function* () {
       self.fetchingData = true;
-  
   
       self.people = yield fetchPeopleApi();
   

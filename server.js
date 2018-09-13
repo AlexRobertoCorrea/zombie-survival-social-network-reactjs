@@ -7,13 +7,12 @@ const logger = require('winston');
 
 const app = express();
 const port = process.env.PORT || 7070;
-const env = process.env.NODE_ENV || 'development';
 
 app.use(compress());
 app.use(bodyParser());
 app.use(cors());
 
-const staticFolder = env === 'production' ? './.dist' : './.tmp';
+const staticFolder = './.dist';
 
 app.set('views', staticFolder);
 app.use(express.static(staticFolder));

@@ -1,0 +1,62 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-underscore-dangle": 0,
+    "max-len": [2, 110, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false
+    }],
+    "no-trailing-spaces": ["error", {
+      "skipBlankLines": true
+    }],
+    "no-lonely-if" : 2,
+    "curly": 2,
+    "no-console": 2,
+    "func-names": 0,
+    "consistent-return": 0,
+    "comma-dangle": 0,
+    "space-before-function-paren": 0,
+    "no-param-reassign": 0,
+    "array-callback-return": 0,
+    "no-restricted-syntax": 0,
+    "no-use-before-define": 0,
+    "wrap-iife": 0,
+    "strict": 0,
+    "no-prototype-builtins": 0,
+    "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/require-default-props": 0,
+    "react/no-unescaped-entities": 0,
+    "no-script-url": 0,
+    "prefer-template": 0,
+    "no-return-await": 0,
+    "prefer-destructuring": 0,
+    "no-empty-pattern": 0,
+    "no-mixed-operators": 0,
+    "import/prefer-default-export": 0
+  },
+  "globals": {
+    "Promise": 1,
+    "describe": 1,
+    "afterAll": 1,
+    "beforeEach": 1,
+    "beforeAll": 1,
+    "inject": 1,
+    "it": 1,
+    "expect": 1,
+    "shallow": 1,
+    "mount": 1,
+    "jest": 1
+  }
+}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListData /> Renders people data correctly Ensure that listData works as expected 1`] = `
+<ListData
+  classes={
+    Object {
+      "button": "ListData-button-01 test",
+      "cell": "ListData-cell-02 test",
+    }
+  }
+  people={
+    Array [
+      Object {
+        "age": 16,
+        "gender": "M",
+        "infected": null,
+        "name": "",
+      },
+    ]
+  }
+/>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListPeople /> Renders a circular progress because people was not loaded Ensure that listPeople works as expected 1`] = `
+<WithStyles(ListPeople)
+  classes={Object {}}
+  store={
+    Object {
+      "peopleStore": Object {
+        "fetchingData": true,
+      },
+    }
+  }
+/>
+`;
+
+exports[`<ListPeople /> Renders the table of people correctly Ensure that listPeople works as expected 1`] = `
+<WithStyles(ListPeople)
+  classes={
+    Object {
+      "root": "",
+      "table": "",
+    }
+  }
+  store={
+    Object {
+      "fetchingData": false,
+      "peopleStore": Object {
+        "people": Array [],
+      },
+    }
+  }
+/>
+`;
