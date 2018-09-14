@@ -16,11 +16,17 @@ const fetchPeopleApi = () => {
 const markPersonInfectedApi = (personId, delatorId) => {
   const url = `${baseUrl}/${delatorId}/report_infection.json`;
   
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  };
+  
   const data = {
     infected: personId
   };
   
-  return axios.post(url, data).then(response => ({
+  return axios.post(url, data, config).then(response => ({
     status: response.status
   }));
 };
