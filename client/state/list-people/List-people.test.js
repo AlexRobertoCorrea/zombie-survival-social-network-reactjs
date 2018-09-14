@@ -24,7 +24,6 @@ describe('List People State', () => {
       store.peopleStore.fetchPeople.mockRestore();
     });
     
-    
     it('ensures that store.peopleStore.fetchPeople was called', async () => {
       await fetchData(store);
       
