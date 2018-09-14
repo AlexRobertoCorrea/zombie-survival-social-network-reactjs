@@ -8,6 +8,7 @@ exports[`<ListData /> Renders people data correctly Ensure that listData works a
       "cell": "ListData-cell-02 test",
     }
   }
+  handleClickOpenInfectDialog={[Function]}
   people={
     Array [
       Object {

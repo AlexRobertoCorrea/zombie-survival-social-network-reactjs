@@ -17,7 +17,7 @@ const styles = theme => ({
   }
 });
 
-const markInfectedButton = (person, classes) => {
+const markInfectedButton = (person, classes, handleClickOpenInfectDialog) => {
   const infectedMessage = `${person.name} will be marked as infected`;
   
   return (
@@ -28,6 +28,7 @@ const markInfectedButton = (person, classes) => {
         aria-label="Delete"
         className={classes.button}
         disabled={person.infected}
+        onClick={() => handleClickOpenInfectDialog(person)}
       >
         <AddAlarm />
       </Button>
@@ -37,7 +38,7 @@ const markInfectedButton = (person, classes) => {
 
 @observer class ListData extends Component {
   render() {
-    const { classes, people } = this.props;
+    const { classes, people, handleClickOpenInfectDialog } = this.props;
     
     return people.map((person) => {
       const infectedStatus = person.infected ? 'Infected' : 'Normal';
@@ -57,7 +58,7 @@ const markInfectedButton = (person, classes) => {
             {infectedStatus}
           </TableCell>
           <TableCell className={classes.cell}>
-            {markInfectedButton(person, classes)}
+            {markInfectedButton(person, classes, handleClickOpenInfectDialog)}
           </TableCell>
         </TableRow>
       );
@@ -67,7 +68,8 @@ const markInfectedButton = (person, classes) => {
 
 ListData.propTypes = {
   people: PropTypes.array.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  handleClickOpenInfectDialog: PropTypes.func.isRequired
 };
 
 export default observer(withStyles(styles)(ListData));

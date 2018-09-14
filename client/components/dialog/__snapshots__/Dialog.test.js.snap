@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dialog /> Render When options are empty, must return an empty div Ensure that dialog works as expected 1`] = `<div />`;
+
+exports[`<Dialog /> Render When options are filled, a dialog opens Ensure that dialog works as expected 1`] = `
+<WithStyles(Dialog)
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(DialogTitle)>
+    title
+  </WithStyles(DialogTitle)>
+  <WithStyles(DialogContent)>
+    <Component />
+  </WithStyles(DialogContent)>
+  <WithStyles(DialogActions)>
+    <WithStyles(Button)
+      color="primary"
+      onClick={[Function]}
+    >
+      test
+    </WithStyles(Button)>
+    <label
+      htmlFor="contained-button-file"
+    >
+      <WithStyles(Button)
+        color="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        test
+      </WithStyles(Button)>
+    </label>
+  </WithStyles(DialogActions)>
+</WithStyles(Dialog)>
+`;

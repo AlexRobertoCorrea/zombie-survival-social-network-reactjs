@@ -1,8 +1,14 @@
+import Chance from 'chance';
 import httpStatus from 'http-status';
 import nock from 'nock';
 
-import { fetchPeopleApi } from './people';
+import {
+  fetchPeopleApi,
+  markPersonInfectedApi
+} from './people';
 import { getPersonData } from '../helpers/test';
+
+const chance = new Chance();
 
 describe('People service', () => {
   const API_ENDPOINT = 'http://zssn-backend-example.herokuapp.com';
@@ -10,7 +16,7 @@ describe('People service', () => {
   afterEach(nock.cleanAll);
   
   describe('fetchPeopleApi', () => {
-    describe('fetchPeopleApi returns success', () => {
+    describe('returns success', () => {
       const url = '/api/people.json';
       
       const response = {
@@ -49,6 +55,50 @@ describe('People service', () => {
         
         try {
           await fetchPeopleApi();
+        } catch (err) {
+          expect(err.code).toBe(code);
+        }
+      });
+    });
+  });
+  
+  describe('markPersonInfectedApi', () => {
+    describe('returns success', () => {
+      const personId = chance.hash();
+      const delatorId = chance.hash();
+      
+      const url = `/api/people/${delatorId}/report_infection.json`;
+      
+      const response = {
+        status: httpStatus.ACCEPTED
+      };
+      
+      it('ensures that person is marked as infected correctly', async () => {
+        nock(API_ENDPOINT)
+          .post(url)
+          .reply(response.status);
+        
+        const res = await markPersonInfectedApi(personId, delatorId);
+        
+        expect(res).toEqual(response);
+      });
+    });
+    
+    describe('returns error', () => {
+      const personId = chance.hash();
+      const delatorId = chance.hash();
+  
+      const url = `/api/people/${delatorId}/report_infection.json`;
+
+      const code = httpStatus.INTERNAL_SERVER_ERROR;
+
+      it('failure', async () => {
+        nock(API_ENDPOINT)
+          .post(url)
+          .replyWithError({ code });
+
+        try {
+          await markPersonInfectedApi(personId, delatorId);
         } catch (err) {
           expect(err.code).toBe(code);
         }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
+import { observable } from 'mobx';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
@@ -11,7 +12,14 @@ import TableCell from '@material-ui/core/TableCell';
 import { withStyles } from '@material-ui/core/styles';
 
 import ListData from './List-data';
-import { fetchData, setPeopleId } from '../../state/list-people/List-people';
+import DialogInfectPerson from './Dialog-infect-person';
+import Notifier from '../notifier/Notifier';
+import {
+  fetchData,
+  setPeopleId,
+  handleInfectPerson,
+  getInfectOptions
+} from '../../state/list-people/List-people';
 
 const styles = theme => ({
   root: {
@@ -31,6 +39,19 @@ const styles = theme => ({
     fetchData(store);
   }
   
+  handleCloseInfectDialog = () => {
+    this.openInfectDialog = false;
+  };
+  
+  handleClickOpenInfectDialog = (person) => {
+    this.openInfectDialog = true;
+    this.person = person;
+  };
+  
+  @observable openInfectDialog = false;
+  @observable notifier = null;
+  @observable person = {};
+  
   render() {
     const { classes, store } = this.props;
   
@@ -43,9 +64,28 @@ const styles = theme => ({
         </div>
       );
     }
+  
+    const people = setPeopleId(store.peopleStore.people);
     
     return (
       <div className={classes.root}>
+        <Notifier innerRef={(notifier) => {
+          if (!this.notifier) {
+            this.notifier = notifier;
+          }
+        }}
+        />
+        
+        <DialogInfectPerson
+          open={this.openInfectDialog}
+          person={this.person}
+          handleCloseInfect={this.handleCloseInfectDialog}
+          handleInfectPerson={() => {
+            handleInfectPerson(getInfectOptions(this.person, people, store, this.notifier));
+            this.handleCloseInfectDialog();
+          }}
+        />
+        
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
@@ -58,7 +98,8 @@ const styles = theme => ({
           </TableHead>
           <TableBody>
             <ListData
-              people={setPeopleId(store.peopleStore.people)}
+              people={people}
+              handleClickOpenInfectDialog={this.handleClickOpenInfectDialog}
             />
           </TableBody>
         </Table>

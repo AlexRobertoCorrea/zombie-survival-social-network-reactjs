@@ -14,10 +14,12 @@ describe('<ListData />', () => {
       gender: 'M',
       infected: null
     }];
+    const handleClickOpenInfectDialog = () => {};
     
     const listData = shallow(<ListData
       classes={classes}
       people={people}
+      handleClickOpenInfectDialog={handleClickOpenInfectDialog}
     />);
     
     it('Ensure that listData works as expected', () => {

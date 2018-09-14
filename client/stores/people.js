@@ -1,6 +1,6 @@
 import { types, flow } from 'mobx-state-tree';
 
-import { fetchPeopleApi } from '../services/people';
+import { fetchPeopleApi, markPersonInfectedApi } from '../services/people';
 
 const PersonModel = types
   .model('PersonModel', {
@@ -17,7 +17,8 @@ const PersonModel = types
 const PeopleStore = types
   .model('PeopleStore', {
     people: types.optional(types.array(PersonModel), []),
-    fetchingData: types.optional(types.boolean, false)
+    fetchingData: types.optional(types.boolean, false),
+    savingData: types.optional(types.boolean, false)
   })
   .actions((self) => {
     const fetchPeople = flow(function* () {
@@ -28,7 +29,17 @@ const PeopleStore = types
       self.fetchingData = false;
     });
     
-    return { fetchPeople };
+    const markPersonAsInfected = flow(function* (personId, delatorId) {
+      self.savingData = true;
+  
+      const response = yield markPersonInfectedApi(personId, delatorId);
+  
+      self.savingData = false;
+      
+      return response;
+    });
+    
+    return { fetchPeople, markPersonAsInfected };
   });
 
 export default PeopleStore;

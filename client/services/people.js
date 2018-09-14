@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const baseUrl = 'http://zssn-backend-example.herokuapp.com/api/people';
+
 const fetchPeopleApi = () => {
-  const url = 'http://zssn-backend-example.herokuapp.com/api/people.json';
+  const url = `${baseUrl}.json`;
   
   return axios.get(url).then(response =>
     response.data.map(person => ({
@@ -11,4 +13,19 @@ const fetchPeopleApi = () => {
     })));
 };
 
-export { fetchPeopleApi };
+const markPersonInfectedApi = (personId, delatorId) => {
+  const url = `${baseUrl}/${delatorId}/report_infection.json`;
+  
+  const data = {
+    infected: personId
+  };
+  
+  return axios.post(url, data).then(response => ({
+    status: response.status
+  }));
+};
+
+export {
+  fetchPeopleApi,
+  markPersonInfectedApi
+};
