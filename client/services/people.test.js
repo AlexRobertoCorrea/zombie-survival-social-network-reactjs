@@ -1,21 +1,8 @@
-import Chance from 'chance';
 import httpStatus from 'http-status';
 import nock from 'nock';
 
 import { fetchPeopleApi } from './people';
-
-const chance = new Chance();
-
-const getPersonData = () => ({
-  location: chance.url(),
-  name: chance.name(),
-  age: chance.natural({ min: 1, max: 20 }),
-  gender: chance.gender(),
-  lonlat: chance.coordinates(),
-  created_at: chance.birthday().toISOString(),
-  updated_at: chance.birthday().toISOString(),
-  infected: chance.bool()
-});
+import { getPersonData } from '../helpers/test';
 
 describe('People service', () => {
   const API_ENDPOINT = 'http://zssn-backend-example.herokuapp.com';

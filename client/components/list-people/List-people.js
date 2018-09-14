@@ -11,7 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import { withStyles } from '@material-ui/core/styles';
 
 import ListData from './List-data';
-import { fetchData } from '../../state/list-people/List-people';
+import { fetchData, setPeopleId } from '../../state/list-people/List-people';
 
 const styles = theme => ({
   root: {
@@ -34,7 +34,7 @@ const styles = theme => ({
   render() {
     const { classes, store } = this.props;
   
-    if (store.peopleStore.fetchingData) {
+    if (store.peopleStore.fetchingData || !store.peopleStore.people.length) {
       return (
         <div>
           <Grid container justify="center">
@@ -58,7 +58,7 @@ const styles = theme => ({
           </TableHead>
           <TableBody>
             <ListData
-              people={store.peopleStore.people}
+              people={setPeopleId(store.peopleStore.people)}
             />
           </TableBody>
         </Table>

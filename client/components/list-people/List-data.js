@@ -7,7 +7,6 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
-import uuid from 'uuid/v4';
 
 const styles = theme => ({
   button: {
@@ -42,10 +41,9 @@ const markInfectedButton = (person, classes) => {
     
     return people.map((person) => {
       const infectedStatus = person.infected ? 'Infected' : 'Normal';
-      const key = uuid();
       
       return (
-        <TableRow key={key}>
+        <TableRow key={person.id}>
           <TableCell className={classes.cell}>
             {person.name}
           </TableCell>

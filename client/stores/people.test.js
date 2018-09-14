@@ -1,20 +1,6 @@
-import Chance from 'chance';
-
+import { getPersonData } from '../helpers/test';
 import * as peopleServices from '../services/people';
 import PeopleStore from './people';
-
-const chance = new Chance();
-
-const getPersonData = () => ({
-  location: chance.url(),
-  name: chance.name(),
-  age: chance.natural({ min: 1, max: 20 }),
-  gender: chance.gender(),
-  lonlat: chance.coordinates(),
-  created_at: chance.birthday(),
-  updated_at: chance.birthday(),
-  infected: chance.bool()
-});
 
 describe('People store', () => {
   describe('Fetch people successfully', () => {
