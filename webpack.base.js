@@ -41,7 +41,8 @@ const config = {
           './client/**/*.test.js',
           './client/**/*.test.js.snap',
           './client/**/*.config.js',
-          './client/test-setup.js'
+          './client/test-setup.js',
+          './client/helpers/test/*'
         ]
       },
       {
