@@ -7,10 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 const SimpleDialog = ({ options }) => {
-  if (!options || !Object.keys(options).length) {
-    return <div />;
-  }
-  
   const {
     open,
     onClose,
@@ -59,7 +55,29 @@ const SimpleDialog = ({ options }) => {
 };
 
 SimpleDialog.propTypes = {
-  options: PropTypes.object.isRequired
+  options: PropTypes.shape({
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.object.isRequired,
+    leftButtonOnClick: PropTypes.func,
+    leftButtonAction: PropTypes.bool,
+    leftButtonLabel: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    rightButtonOnClick: PropTypes.func,
+    rightButtonLabel: PropTypes.string.isRequired,
+    rightButtonAction: PropTypes.bool
+  })
+};
+
+SimpleDialog.defaultProps = {
+  options: {
+    leftButtonOnClick: () => {},
+    leftButtonAction: false,
+    disabled: false,
+    rightButtonOnClick: () => {},
+    rightButtonAction: false
+  }
 };
 
 export default SimpleDialog;

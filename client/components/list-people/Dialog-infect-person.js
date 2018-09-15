@@ -36,9 +36,31 @@ const DialogInfectPerson = ({
 
 DialogInfectPerson.propTypes = {
   open: PropTypes.bool.isRequired,
-  person: PropTypes.object,
+  person: PropTypes.shape({
+    location: PropTypes.string,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    gender: PropTypes.string,
+    lonlat: PropTypes.string,
+    created_at: PropTypes.date,
+    updated_at: PropTypes.date,
+    infected: PropTypes.bool
+  }).isRequired,
   handleCloseInfect: PropTypes.func.isRequired,
   handleInfectPerson: PropTypes.func.isRequired
+};
+
+DialogInfectPerson.defaultProps = {
+  person: {
+    location: '',
+    name: '',
+    age: 0,
+    gender: 'M',
+    lonlat: '',
+    created_at: new Date(),
+    updated_at: new Date(),
+    infected: false
+  }
 };
 
 

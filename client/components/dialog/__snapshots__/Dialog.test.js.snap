@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dialog /> Render When options are empty, must return an empty div Ensure that dialog works as expected 1`] = `<div />`;
-
 exports[`<Dialog /> Render When options are filled, a dialog opens Ensure that dialog works as expected 1`] = `
 <WithStyles(Dialog)
   onClose={[Function]}
@@ -11,7 +9,7 @@ exports[`<Dialog /> Render When options are filled, a dialog opens Ensure that d
     title
   </WithStyles(DialogTitle)>
   <WithStyles(DialogContent)>
-    <Component />
+    <div />
   </WithStyles(DialogContent)>
   <WithStyles(DialogActions)>
     <WithStyles(Button)
