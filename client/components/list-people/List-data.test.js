@@ -3,7 +3,7 @@ import React from 'react';
 import ListData from './List-data';
 
 describe('<ListData />', () => {
-  describe('Renders people data correctly', () => {
+  describe('When people data is loaded', () => {
     const classes = {
       cell: 'test',
       button: 'test'
@@ -22,7 +22,7 @@ describe('<ListData />', () => {
       handleClickOpenInfectDialog={handleClickOpenInfectDialog}
     />);
     
-    it('Ensure that listData works as expected', () => {
+    it('listData shows a list of people', () => {
       expect(listData).toMatchSnapshot();
     });
   });

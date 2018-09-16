@@ -3,7 +3,7 @@ import React from 'react';
 import ListPeople from './List-people';
 
 describe('<ListPeople />', () => {
-  describe('Renders a circular progress because people was not loaded', () => {
+  describe('When people data is not loaded', () => {
     const store = {
       peopleStore: {
         fetchingData: true
@@ -16,12 +16,12 @@ describe('<ListPeople />', () => {
       classes={classes}
     />);
     
-    it('Ensure that listPeople works as expected', () => {
+    it('renders a circular progress', () => {
       expect(listPeople).toMatchSnapshot();
     });
   });
   
-  describe('Renders the table of people correctly', () => {
+  describe('When people data is loaded', () => {
     const store = {
       peopleStore: {
         people: []
@@ -38,7 +38,7 @@ describe('<ListPeople />', () => {
       classes={classes}
     />);
     
-    it('Ensure that listPeople works as expected', () => {
+    it('renders a table of people', () => {
       expect(listPeople).toMatchSnapshot();
     });
   });

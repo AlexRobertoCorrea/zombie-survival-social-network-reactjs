@@ -3,7 +3,7 @@ import React from 'react';
 import DialogInfectPerson from './Dialog-infect-person';
 
 describe('<DialogInfectPerson />', () => {
-  describe('Renders infected dialog correctly', () => {
+  describe('When infected dialog is active', () => {
     const open = true;
     const person = {};
     const handleCloseInfect = () => {};
@@ -16,7 +16,7 @@ describe('<DialogInfectPerson />', () => {
       handleInfectPerson={handleInfectPerson}
     />);
     
-    it('Ensure that dialogInfectPerson works as expected', () => {
+    it('renders dialogInfectPerson correctly', () => {
       expect(dialogInfectPerson).toMatchSnapshot();
     });
   });

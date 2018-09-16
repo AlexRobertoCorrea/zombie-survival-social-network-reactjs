@@ -3,7 +3,7 @@ import React from 'react';
 import Notifier from './Notifier';
 
 describe('<Notifier />', () => {
-  describe('Render when open is false', () => {
+  describe('When open is false', () => {
     const classes = {
       message: 'success'
     };
@@ -16,12 +16,12 @@ describe('<Notifier />', () => {
       variant: 'success'
     });
     
-    it('Ensure that Notifier rendered correctly', () => {
+    it('Notifier is rendered correctly', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
   
-  describe('Render when open is true and success message', () => {
+  describe('When open is true and success message', () => {
     const classes = {
       message: 'success',
       success: 'success'
@@ -35,12 +35,12 @@ describe('<Notifier />', () => {
       variant: 'success'
     });
 
-    it('Ensure that Notifier rendered correctly', () => {
+    it('Notifier is rendered with success message', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
   
-  describe('Render when open is true and error message', () => {
+  describe('When open is true and error message', () => {
     const classes = {
       message: 'success',
       error: 'error'
@@ -54,7 +54,7 @@ describe('<Notifier />', () => {
       variant: 'error'
     });
     
-    it('Ensure that Notifier rendered correctly', () => {
+    it('Notifier is rendered correctly with error message', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
