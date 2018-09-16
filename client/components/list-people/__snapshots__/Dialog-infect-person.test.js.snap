@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DialogInfectPerson /> Renders infected dialog correctly Ensure that dialogInfectPerson works as expected 1`] = `
+exports[`<DialogInfectPerson /> When infected dialog is active renders dialogInfectPerson correctly 1`] = `
 <SimpleDialog
   options={
     Object {

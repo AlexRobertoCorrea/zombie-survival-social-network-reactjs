@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Notifier /> Render when open is false Ensure that Notifier rendered correctly 1`] = `
+exports[`<Notifier /> When open is false Notifier is rendered correctly 1`] = `
 <Notifier
   classes={
     Object {
@@ -14,7 +14,7 @@ exports[`<Notifier /> Render when open is false Ensure that Notifier rendered co
 />
 `;
 
-exports[`<Notifier /> Render when open is true and error message Ensure that Notifier rendered correctly 1`] = `
+exports[`<Notifier /> When open is true and error message Notifier is rendered correctly with error message 1`] = `
 <Notifier
   classes={
     Object {
@@ -28,7 +28,7 @@ exports[`<Notifier /> Render when open is true and error message Ensure that Not
 />
 `;
 
-exports[`<Notifier /> Render when open is true and success message Ensure that Notifier rendered correctly 1`] = `
+exports[`<Notifier /> When open is true and success message Notifier is rendered with success message 1`] = `
 <Notifier
   classes={
     Object {

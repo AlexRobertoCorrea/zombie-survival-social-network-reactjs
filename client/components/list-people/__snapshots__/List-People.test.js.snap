@@ -1,19 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ListPeople /> Renders a circular progress because people was not loaded Ensure that listPeople works as expected 1`] = `
-<WithStyles(ListPeople)
-  classes={Object {}}
-  store={
-    Object {
-      "peopleStore": Object {
-        "fetchingData": true,
-      },
-    }
-  }
-/>
-`;
-
-exports[`<ListPeople /> Renders the table of people correctly Ensure that listPeople works as expected 1`] = `
+exports[`<ListPeople /> When people data is loaded renders a table of people 1`] = `
 <WithStyles(ListPeople)
   classes={
     Object {
@@ -26,6 +13,19 @@ exports[`<ListPeople /> Renders the table of people correctly Ensure that listPe
       "fetchingData": false,
       "peopleStore": Object {
         "people": Array [],
+      },
+    }
+  }
+/>
+`;
+
+exports[`<ListPeople /> When people data is not loaded renders a circular progress 1`] = `
+<WithStyles(ListPeople)
+  classes={Object {}}
+  store={
+    Object {
+      "peopleStore": Object {
+        "fetchingData": true,
       },
     }
   }

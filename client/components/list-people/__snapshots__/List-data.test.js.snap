@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ListData /> Renders people data correctly Ensure that listData works as expected 1`] = `
+exports[`<ListData /> When people data is loaded listData shows a list of people 1`] = `
 <ListData
   classes={
     Object {

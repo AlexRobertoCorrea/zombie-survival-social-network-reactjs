@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> Renders header correctly Ensure that header works correctly 1`] = `
+exports[`<Header /> renders the header as expected 1`] = `
 <Header
   classes={
     Object {

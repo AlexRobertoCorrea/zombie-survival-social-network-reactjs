@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dialog /> Render When options are filled, a dialog opens Ensure that dialog works as expected 1`] = `
+exports[`<Dialog /> When options are filled the dialog opens as expected 1`] = `
 <WithStyles(Dialog)
   onClose={[Function]}
   open={true}
