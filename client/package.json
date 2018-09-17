@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --verbose",
     "install:prod": "../node_modules/yarn/bin/yarn install"
   },
   "author": "Alex Roberto Corrêa",
