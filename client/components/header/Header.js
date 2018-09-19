@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
+import { observable } from 'mobx';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import MobxReactForm from 'mobx-react-form';
+import validatorjs from 'validatorjs';
+
+import DialogSurvivor from './Dialog-survivor';
+import Notifier from '../notifier/Notifier';
+import { handleSavePerson } from '../../state/header/Header';
+import fieldsData from '../../helpers/form-fields';
+
+const { survivorFields } = fieldsData;
+const plugins = { dvr: validatorjs };
 
 const styles = theme => ({
   root: {
@@ -18,8 +29,30 @@ const styles = theme => ({
 });
 
 @observer class Header extends Component {
+  componentDidMount() {
+    this.form = new MobxReactForm({ fields: survivorFields }, { plugins, hooks: this.hooks });
+  }
+  
+  handleCloseDialogSurvivor = () => {
+    this.openDialogSurvivor = false;
+  };
+  
+  handleClickOpenDialogSurvivor = () => {
+    this.openDialogSurvivor = true;
+  };
+  
+  @observable openDialogSurvivor = false;
+  @observable form = null;
+  @observable notifier = null;
+  
   render() {
-    const { classes } = this.props;
+    const { classes, store } = this.props;
+    const options = {
+      form: this.form,
+      store,
+      notifier: this.notifier,
+      handleCloseDialogSurvivor: this.handleCloseDialogSurvivor
+    };
     
     return (
       <Grid
@@ -29,6 +62,21 @@ const styles = theme => ({
         alignItems="center"
         className={classes.root}
       >
+        <Notifier innerRef={(notifier) => {
+          if (!this.notifier) {
+            this.notifier = notifier;
+          }
+        }}
+        />
+        
+        <DialogSurvivor
+          open={this.openDialogSurvivor}
+          handleCloseDialogSurvivor={this.handleCloseDialogSurvivor}
+          options={options}
+          fields={survivorFields}
+          handleSurvivorPerson={() => handleSavePerson(options)}
+        />
+        
         <Grid item>
           <Typography
             variant="display2"
@@ -43,6 +91,7 @@ const styles = theme => ({
             variant="extendedFab"
             color="primary"
             component="span"
+            onClick={this.handleClickOpenDialogSurvivor}
           >
             <AddIcon className={classes.leftIcon} />
             Add survivors
@@ -54,8 +103,18 @@ const styles = theme => ({
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.shape({
+    leftIcon: PropTypes.string.isRequired,
+    root: PropTypes.string.isRequired
+  }).isRequired,
+  store: PropTypes.shape({
+    peopleStore: PropTypes.shape({
+      fetchingData: PropTypes.bool.isRequired,
+      people: PropTypes.array.isRequired,
+      person: PropTypes.object.isRequired,
+      savingData: PropTypes.bool.isRequired,
+    })
+  }).isRequired
 };
 
-
-export default observer(withStyles(styles)(Header));
+export default inject('store')(observer(withStyles(styles)(Header)));

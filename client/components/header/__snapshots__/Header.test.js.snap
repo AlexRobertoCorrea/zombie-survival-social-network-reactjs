@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> renders the header as expected 1`] = `
-<Header
+<WithStyles(Header)
   classes={
     Object {
-      "leftIcon": "Header-leftIcon-02",
-      "root": "Header-root-01",
+      "leftIcon": "",
+      "root": "",
     }
   }
+  store={Object {}}
 />
 `;
