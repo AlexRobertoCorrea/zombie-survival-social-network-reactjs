@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListData /> When people data is loaded listData shows a list of people 1`] = `
+<ListData
+  classes={
+    Object {
+      "button": "ListData-button-01 test",
+      "cell": "ListData-cell-02 test",
+    }
+  }
+  handleClickOpenInfectDialog={[Function]}
+  people={
+    Array [
+      Object {
+        "age": 16,
+        "gender": "M",
+        "infected": null,
+        "name": "",
+      },
+    ]
+  }
+/>
+`;

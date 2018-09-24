@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogInfectPerson /> When infected dialog is active renders dialogInfectPerson correctly 1`] = `
+<SimpleDialog
+  options={
+    Object {
+      "content": <WithStyles(DialogContentText)
+        id="alert-dialog-description"
+      >
+        Are you sure you want mark 
+         as infected?
+      </WithStyles(DialogContentText)>,
+      "leftButtonLabel": "Cancel",
+      "leftButtonOnClick": [Function],
+      "onClose": [Function],
+      "open": true,
+      "rightButtonLabel": "Accept",
+      "rightButtonOnClick": [Function],
+      "title": "Infect person",
+    }
+  }
+/>
+`;

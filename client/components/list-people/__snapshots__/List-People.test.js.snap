@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListPeople /> When people data is loaded renders a table of people 1`] = `
+<WithStyles(ListPeople)
+  classes={
+    Object {
+      "root": "",
+      "table": "",
+    }
+  }
+  store={
+    Object {
+      "fetchingData": false,
+      "peopleStore": Object {
+        "people": Array [],
+      },
+    }
+  }
+/>
+`;
+
+exports[`<ListPeople /> When people data is not loaded renders a circular progress 1`] = `
+<WithStyles(ListPeople)
+  classes={Object {}}
+  store={
+    Object {
+      "peopleStore": Object {
+        "fetchingData": true,
+      },
+    }
+  }
+/>
+`;

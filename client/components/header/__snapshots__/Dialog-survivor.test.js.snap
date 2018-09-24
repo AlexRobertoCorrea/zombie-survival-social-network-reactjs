@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogSurvivor /> renders the dialogSurvivor as expected 1`] = `
+<SimpleDialog
+  options={
+    Object {
+      "content": <FormPerson
+        fields={
+          Object {
+            "age": Object {},
+            "ammunition": Object {},
+            "food": Object {},
+            "gender": Object {},
+            "latitude": Object {},
+            "longitude": Object {},
+            "medication": Object {},
+            "name": Object {},
+            "water": Object {},
+          }
+        }
+        form={Object {}}
+        gendersOptions={
+          Array [
+            Object {
+              "label": "Male",
+              "value": "M",
+            },
+            Object {
+              "label": "Female",
+              "value": "F",
+            },
+          ]
+        }
+        handleSurvivorPerson={[Function]}
+        options={
+          Object {
+            "form": Object {},
+            "handleCloseDialogSurvivor": [Function],
+            "notifier": Object {},
+            "store": Object {
+              "peopleStore": Object {
+                "fetchingData": false,
+                "people": Array [],
+                "person": Object {},
+                "savingData": false,
+              },
+            },
+          }
+        }
+      />,
+      "leftButtonLabel": "Cancel",
+      "leftButtonOnClick": [Function],
+      "onClose": [Function],
+      "open": true,
+      "rightButtonLabel": "Save",
+      "rightButtonOnClick": [Function],
+      "title": "Register user",
+    }
+  }
+/>
+`;

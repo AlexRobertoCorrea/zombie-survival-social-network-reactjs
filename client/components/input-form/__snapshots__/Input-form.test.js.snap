@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When selectOptions is not passed at props renders the inputForm as expected 1`] = `
+<WithStyles(FormControl)
+  error={false}
+  fullWidth={true}
+  key=""
+  margin="dense"
+  required={false}
+>
+  <WithStyles(InputLabel) />
+  <WithStyles(Input)
+    id="margin-normal"
+    inputProps={
+      Object {
+        "maxLength": 50,
+      }
+    }
+    type=""
+  />
+  <div />
+</WithStyles(FormControl)>
+`;
+
+exports[`When selectOptions is passed at props renders the inputForm as expected 1`] = `
+<WithStyles(FormControl)
+  error={false}
+  fullWidth={true}
+  key=""
+  margin="dense"
+  required={false}
+>
+  <WithStyles(InputLabel) />
+  <WithStyles(Select)
+    inputProps={
+      Object {
+        "id": "",
+        "name": "",
+      }
+    }
+    onChange={[Function]}
+  >
+    <WithStyles(MenuItem)
+      key=""
+      value=""
+    />
+  </WithStyles(Select)>
+  <WithStyles(FormHelperText) />
+  <div />
+</WithStyles(FormControl)>
+`;

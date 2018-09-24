@@ -1,0 +1,16 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": {
+        "loose": true
+      }
+    }],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-async-to-generator",
+    "transform-decorators-legacy"
+  ]
+}

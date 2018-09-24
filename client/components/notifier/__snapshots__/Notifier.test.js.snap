@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Notifier /> When open is false Notifier is rendered correctly 1`] = `
+<Notifier
+  classes={
+    Object {
+      "error": "Notifier-error-02",
+      "icon": "Notifier-icon-04",
+      "iconVariant": "Notifier-iconVariant-05",
+      "info": "Notifier-info-03",
+      "message": "Notifier-message-06 success",
+      "success": "Notifier-success-01",
+    }
+  }
+/>
+`;
+
+exports[`<Notifier /> When open is true and error message Notifier is rendered correctly with error message 1`] = `
+<Notifier
+  classes={
+    Object {
+      "error": "Notifier-error-02 error",
+      "icon": "Notifier-icon-04",
+      "iconVariant": "Notifier-iconVariant-05",
+      "info": "Notifier-info-03",
+      "message": "Notifier-message-06 success",
+      "success": "Notifier-success-01",
+    }
+  }
+/>
+`;
+
+exports[`<Notifier /> When open is true and success message Notifier is rendered with success message 1`] = `
+<Notifier
+  classes={
+    Object {
+      "error": "Notifier-error-02",
+      "icon": "Notifier-icon-04",
+      "iconVariant": "Notifier-iconVariant-05",
+      "info": "Notifier-info-03",
+      "message": "Notifier-message-06 success",
+      "success": "Notifier-success-01 success",
+    }
+  }
+/>
+`;
