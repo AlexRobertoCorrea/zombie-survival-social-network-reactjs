@@ -59,7 +59,7 @@ SimpleDialog.propTypes = {
     open: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
-    content: PropTypes.object.isRequired,
+    content: PropTypes.object,
     leftButtonOnClick: PropTypes.func,
     leftButtonAction: PropTypes.bool,
     leftButtonLabel: PropTypes.string.isRequired,
@@ -72,6 +72,7 @@ SimpleDialog.propTypes = {
 
 SimpleDialog.defaultProps = {
   options: {
+    content: {},
     leftButtonOnClick: () => {},
     leftButtonAction: false,
     disabled: false,

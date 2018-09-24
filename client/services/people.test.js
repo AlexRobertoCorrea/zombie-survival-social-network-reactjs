@@ -3,6 +3,7 @@ import httpStatus from 'http-status';
 import nock from 'nock';
 
 import {
+  createPersonApi,
   fetchPeopleApi,
   markPersonInfectedApi
 } from './people';
@@ -99,6 +100,49 @@ describe('People service', () => {
 
         try {
           await markPersonInfectedApi(personId, delatorId);
+        } catch (err) {
+          expect(err.code).toBe(code);
+        }
+      });
+    });
+  });
+  
+  describe('createPersonApi', () => {
+    describe('when success is returned', () => {
+      const person = {};
+      
+      const url = '/api/people.json';
+      
+      const response = {
+        status: httpStatus.CREATED,
+        data: person
+      };
+      
+      it('ensures that person is saved correctly', async () => {
+        nock(API_ENDPOINT)
+          .post(url)
+          .reply(response.status, response.data);
+        
+        const res = await createPersonApi(person);
+        
+        expect(res).toEqual(response);
+      });
+    });
+    
+    describe('when error is returned', () => {
+      const person = {};
+  
+      const url = '/api/people.json';
+      
+      const code = httpStatus.INTERNAL_SERVER_ERROR;
+      
+      it('ensures that person is not saved', async () => {
+        nock(API_ENDPOINT)
+          .post(url)
+          .replyWithError({ code });
+        
+        try {
+          await createPersonApi(person);
         } catch (err) {
           expect(err.code).toBe(code);
         }

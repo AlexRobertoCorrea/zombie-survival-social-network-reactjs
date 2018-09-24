@@ -104,4 +104,69 @@ describe('People store', () => {
       expect(errorResponse).toEqual(error);
     });
   });
+  
+  describe('When person is created successfully', () => {
+    const peopleStore = PeopleStore.create();
+    let person;
+    const expectedPerson = {
+      status: httpStatus.OK,
+      data: getPersonData()
+    };
+    const personData = expectedPerson.data;
+    
+    beforeEach(async () => {
+      peopleServices.createPersonApi = jest.fn().mockResolvedValue(expectedPerson);
+  
+      person = await peopleStore.createPerson(personData);
+    });
+    
+    afterAll(() => {
+      peopleServices.createPersonApi.mockRestore();
+    });
+    
+    it('ensures peopleServices.createPersonApi has been called', () => {
+      expect(peopleServices.createPersonApi).toHaveBeenCalledWith(personData);
+    });
+    
+    it('has peopleStore.creatingData property set as false', () => {
+      expect(peopleStore.creatingData).toBeFalsy();
+    });
+    
+    it('ensures that person was created correctly', () => {
+      expect(person).toEqual(expectedPerson);
+    });
+  });
+  
+  describe('When an error happens while saving person', () => {
+    const peopleStore = PeopleStore.create();
+    const personData = getPersonData();
+    const error = new Error();
+    let errorResponse;
+
+    beforeEach(async () => {
+      peopleServices.createPersonApi = jest.fn().mockRejectedValue(error);
+
+      try {
+        await peopleStore.createPerson(personData);
+      } catch (err) {
+        errorResponse = err;
+      }
+    });
+
+    afterAll(() => {
+      peopleServices.createPersonApi.mockRestore();
+    });
+
+    it('ensures peopleServices.createPersonApi has been called', () => {
+      expect(peopleServices.createPersonApi).toHaveBeenCalledWith(personData);
+    });
+
+    it('has peopleStore.creatingData property set as true', () => {
+      expect(peopleStore.creatingData).toBeTruthy();
+    });
+
+    it('ensures that person was not created', () => {
+      expect(errorResponse).toEqual(error);
+    });
+  });
 });

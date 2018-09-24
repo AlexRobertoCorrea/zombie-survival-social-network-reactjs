@@ -2,6 +2,15 @@ import axios from 'axios';
 
 const baseUrl = 'http://zssn-backend-example.herokuapp.com/api/people';
 
+const createPersonApi = (person) => {
+  const url = `${baseUrl}.json`;
+  
+  return axios.post(url, person).then(response => ({
+    data: response.data,
+    status: response.status
+  }));
+};
+
 const fetchPeopleApi = () => {
   const url = `${baseUrl}.json`;
   
@@ -32,6 +41,7 @@ const markPersonInfectedApi = (personId, delatorId) => {
 };
 
 export {
+  createPersonApi,
   fetchPeopleApi,
   markPersonInfectedApi
 };
